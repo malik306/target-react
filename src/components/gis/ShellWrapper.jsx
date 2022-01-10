@@ -1,10 +1,14 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
+import {ShellProvider,AppShellSide} from '@target-energysolutions/app-shell';
 
-function ShellWrapper() {
+function ShellWrapper(props) {
+  console.log(props+`Shell Wrapper Props`);
   return (
     <>
-      <h1>hhh</h1>
+      <ShellProvider> 
+        {/* <AppShellSide envURL='' apps={[]} disableSidebar={false}/> */}
+       </ShellProvider>
     </>
   );
 }
