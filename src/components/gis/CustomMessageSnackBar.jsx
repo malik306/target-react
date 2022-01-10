@@ -1,6 +1,9 @@
 import React from "react";
-
-export default function CustomMessageSnackBar(props) {
+import { hot, setConfig } from "react-hot-loader";
+setConfig({
+  showReactDomPatchNotification: false,
+});
+function CustomMessageSnackBar(props) {
   return (
     <div className="custom-snackbar-message">
       {props.icon && (
@@ -16,3 +19,4 @@ export default function CustomMessageSnackBar(props) {
     </div>
   );
 }
+export default hot(module)(CustomMessageSnackBar);

@@ -1,18 +1,17 @@
 import React, { lazy, Suspense } from "react";
-import { hot } from "react-hot-loader";
+import { hot, setConfig } from "react-hot-loader";
 import { useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import { getIcon } from "../../libs/getMessageIconByType";
-import CustomMessageSnackBar from './CustomMessageSnackBar';
+import CustomMessageSnackBar from "./CustomMessageSnackBar";
+//import PropTypes from 'prop-types';
 const ShellWrapper = lazy(() => import("./ShellWrapper"));
-
+setConfig({
+  showReactDomPatchNotification: false,
+});
 
 function App() {
-  const toast = useSelector((state) => state.handleToast);
-  console.log(toast);
-  const addToast = () => {
-    console.log("add Toast gis");
-  };
+  const { addToast, dismissToast } = useSelector((state) => state.handleToast);
   return (
     <>
       <Suspense fallback={<h1>Loading...</h1>}>
